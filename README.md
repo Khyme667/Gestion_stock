@@ -26,6 +26,7 @@ Une application web développée avec Laravel pour gérer les produits, catégor
    cd gestion_inventaire
 
 Installer les dépendances :
+composer require barryvdh/laravel-dompdf
 composer install
 npm install
 

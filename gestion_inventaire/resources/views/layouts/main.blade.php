@@ -14,6 +14,7 @@
 
     <!-- Font Awesome CSS -->
     <link href="{{ asset('build/assets/fontawesome/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('build/style/style.css') }}" rel="stylesheet">
 
     <!-- Vite pour Tailwind et autres assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -30,6 +31,7 @@
 
     <!-- Bootstrap JS -->
     <script src="{{ asset('build/assets/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('build/script/script.js') }}"></script>
 
     <!-- Scripts supplémentaires -->
     @yield('scripts')

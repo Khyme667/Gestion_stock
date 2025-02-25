@@ -5,8 +5,8 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                    <a class="navbar-brand text-black fw-bold d-flex align-items-center" href="{{ route('dashboard') }}">
+                        <i class="fas fa-hospital fa-lg me-2"></i> Gestion d'Inventaire
                     </a>
                 </div>
 
@@ -34,9 +34,9 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        {{-- <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
-                        </x-dropdown-link>
+                        </x-dropdown-link> --}}
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
