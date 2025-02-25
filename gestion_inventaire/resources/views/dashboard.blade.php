@@ -39,10 +39,20 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Card pour le rapport -->
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="card-body text-center p-6">
+                        <i class="fas fa-chart-bar fa-2x text-indigo-600 mb-3"></i>
+                        <h5 class="card-title text-lg font-semibold text-gray-700">Rapports</h5>
+                        <a href="{{ route('products.report') }}" class="btn btn-primary mt-3">Accéder</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Styles personnalisés -->
     <style>
         .btn-primary {
             background-color: #4f46e5;
@@ -61,7 +71,6 @@
 @endsection
 
 @section('scripts')
-    <!-- Font Awesome déjà inclus dans main.blade.php, ajout d'un script interactif -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const cards = document.querySelectorAll('.card');

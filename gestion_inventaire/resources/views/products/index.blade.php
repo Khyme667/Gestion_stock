@@ -12,6 +12,7 @@
 
         <div class="mb-4">
             <a href="{{ route('products.create') }}" class="btn btn-primary">Ajouter un produit</a>
+            <a href="{{ route('dashboard') }}" class="btn btn-secondary ms-2">Retour au tableau de bord</a>
         </div>
 
         <!-- Recherche -->
@@ -44,6 +45,7 @@
                         <td>{{ $product->quantity }}</td>
                         <td>{{ $product->category->name }}</td>
                         <td>
+                            <a href="{{ route('products.show', $product->id) }}" class="btn btn-info btn-sm">Voir</a>
                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-sm">Modifier</a>
                             <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
                                 @csrf

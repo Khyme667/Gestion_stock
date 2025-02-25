@@ -20,10 +20,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/products/report', [ProductController::class, 'report'])->name('products.report')->middleware('inventory_manager');
+
 Route::middleware('inventory_manager')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('stock_movements', StockMovementController::class);
 });
+
 
 require __DIR__.'/auth.php';

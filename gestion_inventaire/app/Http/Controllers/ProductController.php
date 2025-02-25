@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use PDF;
 
 class ProductController extends Controller
 {
@@ -64,5 +65,26 @@ class ProductController extends Controller
     {
         $product->delete();
         return redirect()->route('products.index')->with('success', 'Produit supprimé avec succès.');
+    }
+
+    public function show(Product $product)
+    {
+        $product->load('category'); // Charger la relation catégorie
+        return view('products.show', compact('product'));
+    }
+
+    public function report(Request $request)
+    {
+        $lowStockThreshold = $request->input('threshold', 10); // Valeur par défaut : 10
+        $products = Product::with('category')
+            ->where('quantity', '<', $lowStockThreshold)
+            ->get();
+
+        if ($request->has('export') && $request->input('export') === 'pdf') {
+            $pdf = PDF::loadView('products.report_pdf', compact('products', 'lowStockThreshold'));
+            return $pdf->download('rapport_stock_faible.pdf');
+        }
+
+        return view('products.report', compact('products', 'lowStockThreshold'));
     }
 }
